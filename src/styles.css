@@ -1,65 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
 body {
-    margin: 0;
-    background: linear-gradient(180deg, rgb(117, 81, 194), rgb(255, 255, 255));
-    display: flex;
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    height: 100vh;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
+  color: #00008c;
+  font-family: Montserrat;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #f9f7f7;
+}
+
+.upload-text {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.file-limit {
+  color: #3970e6;
+  font-family: Barlow;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 16.2px;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+.function-tag {
+  span.p-tag {
+    background-color: #eff2ff;
+    color: #00008c;
     font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    transition: border-color 0.25s;
-    color: white;
+    font-size: 16px;
+    padding: 0 10px;
   }
-  button:hover {
-    border-color: #646cff;
+}
+
+.capabilities {
+  margin: 1rem 0;
+  color: #00008c;
+  font-weight: 500;
+  font-size: 16px;
+  i {
+    margin-right: 8px;
   }
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+}
+
+.skills-tag {
+  margin: 0 3px;
+  .p-tag {
+    background-color: #eff2ff;
+    color: #335bfa;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 0 10px;
   }
-  
-  ul {
-    padding-inline-start: 0;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    margin: 8px 0;
-    border: 1px solid black;
-    gap: 1px;
-    background-color: black;
-    border-radius: 8px;
-    overflow: auto;
+}
+
+.skills-tag.red {
+  .p-tag {
+    background-color: #f9f1fd;
+    color: #a13ad4;
   }
-  
-  li {
-    background-color: white;
-    padding: 8px;
+}
+
+.skills-tag.green {
+  .p-tag {
+    background-color: #f4faf6;
+    color: #49801a;
   }
-  
-  li:hover {
-    background: #dadbf9;
-  }
-  
-  a {
-    font-weight: 800;
-    text-decoration: none;
-  }
+}

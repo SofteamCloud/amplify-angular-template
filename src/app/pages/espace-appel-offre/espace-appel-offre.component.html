@@ -1,0 +1,37 @@
+<div class="base-candidat">
+    <app-upload-analyse [wordings]="wordings"></app-upload-analyse>
+    <p-card styleClass="card-text-blue">
+      <h2>Analyses précédentes des appels d'offres</h2>
+      <p>Listes des AO déjà analysés par NIR Assistant</p>
+      <p-table #dt class="custom-table" [value]="listAO" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]"
+        [paginator]="true" [globalFilterFields]="['id', 'emetteur', 'profils_demandes' ,'date_demarrage']" sortField="date_demarrage"
+        [sortOrder]="-1">
+        <ng-template pTemplate="caption">
+          <div class="flex justify-content-end">
+              <span class="p-input-icon-left ml-auto">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="globalSearch(dt,$event)" placeholder="Search" />
+              </span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="id">ID <p-sortIcon field="id"/></th>
+            <th pSortableColumn="emetteur">Client <p-sortIcon field="emetteur"/></th>
+            <th pSortableColumn="profils_demandes">Profil recherché <p-sortIcon field="profils_demandes"/></th>
+            <th pSortableColumn="date_demarrage">Début de mission <p-sortIcon field="date_demarrage"/></th>
+            <th>Action</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-ao>
+          <tr>
+            <td> {{ao.id | abbreviate}} </td>
+            <td> {{ao.emetteur | abbreviate}} </td>
+            <td> <p-tag *ngFor="let item of (ao.profils_demandes | split_string)" class="skills-tag" [value]="item"/></td>
+            <td> {{ao.date_demarrage}} </td>
+            <td> <p-button label="Ouvrir la fiche" icon="pi pi-arrow-right" iconPos="right" styleClass="p-button-outlined" (click)="redirect(ao)"></p-button> </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-card>
+  </div>

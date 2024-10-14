@@ -1,0 +1,12 @@
+.sidebar-container{
+  width: 240px;
+  height: 100vh;
+  padding: 16px 16px 0px 16px;
+  background-color: white;
+  position: fixed;
+}
+
+.page-container {
+  width: 100%;
+  padding-left: 250px;
+}

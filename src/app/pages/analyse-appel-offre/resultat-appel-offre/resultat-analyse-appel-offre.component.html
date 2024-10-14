@@ -1,0 +1,97 @@
+<div class="ao-card">
+  <header class="ao-header grid col">
+    <h1 class="ao-name">{{ ao?.emetteur }}</h1>
+  </header>
+  <div class="grid">
+    <div *ngIf="ao?.id.length" class="functions align-content-center">
+      <p-tag
+        *ngFor="let item of ao?.id | split_string"
+        class="function-tag mr-2"
+        value="{{ item }}"
+      />
+    </div>
+  </div>
+  <div class="ao-details grid">
+    <div class="col-6">
+      <section class="mb-5 ao-info col-12">
+        <p class="client">Client : {{ ao?.emetteur }}</p>
+      </section>
+      <section class="skills-section col-12">
+        <div *ngIf="ao?.profils_demandes" class="skill-item">
+          <i class="pi pi-user"></i>
+          <div>
+            <h2 class="skill-title">Profil recherché</h2>
+            <div class="tag-container">
+              <p-tag
+                *ngFor="let item of ao?.profils_demandes | split_string"
+                class="skills-tag"
+                value="{{ item }}"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="ao?.date_demarrage" class="skill-item">
+          <i class="pi pi-calendar"></i>
+          <div>
+            <h2 class="skill-title">Début de mission</h2>
+            <p class="skill-description">{{ ao.date_demarrage }}</p>
+          </div>
+        </div>
+
+        <div *ngIf="ao?.duree" class="skill-item">
+          <i class="pi pi-clock"></i>
+          <div>
+            <h2 class="skill-title">Durée</h2>
+            <p class="skill-description">{{ ao.duree }}</p>
+          </div>
+        </div>
+
+        <div *ngIf="ao?.techno_majeures" class="skill-item">
+          <i class="pi pi-wrench"></i>
+          <div>
+            <h2 class="skill-title">Outils principaux</h2>
+            <div class="tag-container">
+              <p-tag
+                *ngFor="let item of ao?.techno_majeures | split_string"
+                class="skills-tag red"
+                value="{{ item }}"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="ao?.techno_secondaires" class="skill-item">
+          <i class="pi pi-wrench"></i>
+          <div>
+            <h2 class="skill-title">Outils secondaires</h2>
+            <div class="tag-container">
+              <p-tag
+                *ngFor="let item of ao?.techno_secondaires | split_string"
+                class="skills-tag red"
+                value="{{ item }}"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="ao?.domaines_fonctionnels" class="skill-item">
+          <i class="pi pi-file-plus"></i>
+          <div>
+            <h2 class="skill-title">Méthodologies</h2>
+            <div class="tag-container">
+              <span class="methodologie">
+                {{ ao?.domaines_fonctionnels }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="details col-6">
+      <div *ngFor="let item of detailsData">
+        <app-details-card [data]="item"></app-details-card>
+      </div>
+    </div>
+  </div>
+</div>

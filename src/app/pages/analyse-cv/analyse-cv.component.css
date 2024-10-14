@@ -1,0 +1,32 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  color: #1010fe;
+  font-weight: 600;
+  font-size: 14px;
+  p {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+}
+
+.appels-doffres-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.appels-doffres-header {
+  width: 100%;
+}
+
+.appels-doffres-title {
+  color: var(--Text-Ultramarine, #00008c);
+  font: 700 20px/1.4 Montserrat, -apple-system, Roboto, Helvetica, sans-serif;
+  letter-spacing: -0.2px;
+}
+
+.appels-doffres-description {
+  color: var(--Text-Lynch, #666d92);
+  font: 500 16px/1 Barlow, sans-serif;
+  margin-top: 4px;
+}

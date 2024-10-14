@@ -1,0 +1,72 @@
+<p-card styleClass="card-text-blue">
+  <h2 class="title">Analyse de matchings précédents</h2>
+  <p class="subtitle">
+    Liste des analyses de correspondances réalisées entre les candidats et les
+    appels d'offres
+  </p>
+  <p-table
+    #dt
+    class="custom-table"
+    [value]="listPreviousMatching"
+    dataKey="id"
+    [rows]="10"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [paginator]="true"
+    [globalFilterFields]="['appel_offre', 'client_ao', 'candidat', 'global_score']"
+    sortField="global_score"
+    [sortOrder]="-1"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex justify-content-end">
+        <span class="p-input-icon-left ml-auto">
+          <i class="pi pi-search"></i>
+          <input
+            pInputText
+            type="text"
+            (input)="globalSearch(dt, $event)"
+            placeholder="Search"
+          />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="appel_offre">
+          Appel d'offres <p-sortIcon field="appel_offre" />
+        </th>
+        <th pSortableColumn="client_ao">
+          Client <p-sortIcon field="client_ao" />
+        </th>
+        <th pSortableColumn="candidat">
+          Meilleur candidat <p-sortIcon field="candidat" />
+        </th>
+        <th pSortableColumn="global_score">
+          Score de matching <p-sortIcon field="global_score" />
+        </th>
+        <th>Action</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-matching>
+      <tr>
+        <td>{{ matching.appel_offre }}</td>
+        <td>{{ matching.client_ao }}</td>
+        <td><p-tag class="skills-tag mr-2" [value]="matching.candidat" /></td>
+        <td>
+          <p-tag
+            class="skills-tag green mr-2"
+            [value]="matching.global_score"
+          />
+        </td>
+        <td>
+          <p-button
+            label="Ouvrir la fiche"
+            icon="pi pi-arrow-right"
+            iconPos="right"
+            styleClass="p-button-outlined"
+            (click)="redirect(matching)"
+          ></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>

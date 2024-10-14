@@ -1,0 +1,113 @@
+.matching-title {
+  color: #00f;
+  letter-spacing: -0.2px;
+  margin: 0;
+}
+
+.client-info {
+  margin: 15px 0;
+}
+
+.client-name {
+  color: #00008c;
+  letter-spacing: -0.18px;
+  margin: 0;
+}
+
+.candidate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.candidate-name {
+  color: #00f;
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: -0.42px;
+}
+
+.candidate-score {
+  background-color: #f4faf6;
+  color: #4a801a;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 4px;
+}
+
+.candidate-details {
+  margin-top: 3rem;
+}
+
+.candidate-info {
+  display: flex;
+  gap: 10rem;
+  padding: 0;
+}
+
+.experience {
+  color: #00008c;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+}
+
+.cv-attractiveness {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #00008c;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.skill-item {
+  display: flex;
+  gap: 8px;
+  margin: 2rem 0;
+}
+
+.skill-title {
+  color: #00008c;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+}
+
+.skill-description {
+  background-color: #eff2ff;
+  border-radius: 5px;
+  color: #00008c;
+  font-size: 14px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.notations-container {
+  margin: 2rem 0;
+}
+
+.metric-item {
+  background-color: #f6f6f8;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.metric-title {
+  color: #00008c;
+  margin: 0 0 8px;
+}
+
+.metric-value {
+  color: #00008c;
+  letter-spacing: -0.24px;
+  margin: 10px;
+}

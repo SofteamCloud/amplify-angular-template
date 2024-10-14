@@ -1,0 +1,8 @@
+::ng-deep #detailsCard .p-card {
+  background-color: #f9f7f7;
+  color: #00008c;
+}
+
+::ng-deep #detailsCard .p-card .p-card-content {
+  padding: 0 !important;
+}

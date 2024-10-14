@@ -1,0 +1,49 @@
+<p-card styleClass="card-text-blue">
+  <h2 class="title">
+    Analyser la correspondance entre un appel d'offres et des candidats
+  </h2>
+  <p class="subtitle">
+    Sélectionnez le document d'AO puis les candidats que vous souhaitez analyser
+  </p>
+  <div class="selectAo">
+    <p class="input-label">Choisir un appel d'offres dans la liste</p>
+    <p-dropdown
+      [options]="aoList"
+      [(ngModel)]="selectedAo"
+      optionLabel="Key"
+      placeholder="Sélectionner"
+    />
+  </div>
+  <div class="selectCandidates">
+    <p class="input-label">Ajouter un ou plusieurs candidats</p>
+    <p-card>
+      <div class="grid">
+        <div class="col-4 selectCandidates">
+          <p-multiSelect
+            [options]="candidatesList"
+            [(ngModel)]="selectedCandidates"
+            optionLabel="Key"
+            placeholder="Sélection candidats"
+            [maxSelectedLabels]="1"
+          />
+        </div>
+        <div class="vertical-line"></div>
+        <div class="col-7 displayCandidates">
+          <p>Candidats sélectionnés</p>
+          <div class="card flex align-items-center gap-2 flex-wrap">
+            <p-chip
+              *ngFor="let item of selectedCandidates"
+              label="{{ item.Key}}"
+              [removable]="true"
+              (onRemove)="removeCandidate(item)"
+            />
+          </div>
+        </div>
+      </div>
+    </p-card>
+  </div>
+  <p-divider />
+  <div class="flex justify-content-end mt-2">
+    <p-button>Lancer le matching</p-button>
+  </div>
+</p-card>

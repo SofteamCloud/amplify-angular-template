@@ -1,0 +1,108 @@
+<div class="candidate-card">
+  <header class="candidate-header grid col">
+    <h1 class="candidate-name">{{ candidate?.id }}</h1>
+    <span class="candidate-score">90</span>
+  </header>
+  <div class="grid">
+    <div
+      *ngIf="candidate?.metier_fonc?.length"
+      class="functions align-content-center"
+    >
+      <p-tag
+        *ngFor="let item of candidate?.metier_fonc | split_string"
+        class="function-tag mr-2"
+        value="{{ item }}"
+      />
+    </div>
+  </div>
+  <div class="candidate-details grid">
+    <div class="col-7">
+      <section class="mb-5 candidate-info col-12">
+        <p
+          *ngIf="candidate?.experience; else noExperienceTemplate"
+          class="experience"
+        >
+          Expérience : {{ candidate?.experience }} ans
+        </p>
+        <ng-template #noExperienceTemplate>
+          <p class="experience">Expérience : N/A</p>
+        </ng-template>
+        <div *ngIf="attractivite" class="cv-attractiveness">
+          <span>Attractivité du CV :</span>
+          <div class="star-rating">
+            <p-rating
+              [(ngModel)]="attractivite"
+              [cancel]="false"
+              [readonly]="true"
+            ></p-rating>
+          </div>
+        </div>
+      </section>
+      <section class="skills-section col-12">
+        <div *ngIf="candidate?.profil" class="skill-item">
+          <i class="pi pi-shopping-bag"></i>
+          <div>
+            <h2 class="skill-title">Compétences métier</h2>
+            <p class="skill-description">
+              {{ candidate?.profil }}
+            </p>
+          </div>
+        </div>
+        <!-- <div class="skill-item">
+          <i class="pi pi-file-check"></i>
+          <div>
+            <h2 class="skill-title">Livrables</h2>
+            <p class="skill-description">
+              Cartographie data, Etude faisabilité, Cahier des charges, Audit
+              RGPD, Diagramme d'architecture data, User Story
+            </p>
+          </div>
+        </div> -->
+        <div *ngIf="candidate?.techno_majeures" class="skill-item">
+          <i class="pi pi-wrench"></i>
+          <div>
+            <h2 class="skill-title">Outils principaux</h2>
+            <div class="tag-container">
+              <p-tag
+                *ngFor="let item of candidate?.techno_majeures | split_string"
+                class="skills-tag red"
+                value="{{ item }}"
+              />
+            </div>
+          </div>
+        </div>
+        <div *ngIf="candidate?.techno_mineures" class="skill-item">
+          <i class="pi pi-wrench"></i>
+          <div>
+            <h2 class="skill-title">Outils secondaires</h2>
+            <div class="tag-container">
+              <p-tag
+                *ngFor="let item of candidate?.techno_mineures | split_string"
+                class="skills-tag red"
+                value="{{ item }}"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- <div class="skill-item">
+          <i class="pi pi-wrench"></i>
+          <div>
+            <h2 class="skill-title">Méthodologies</h2>
+            <div class="tag-container">
+              <span
+                ><p-tag class="skills-tag" value="Agile" /><p-tag
+                  class="skills-tag"
+                  value="Kanban" /><p-tag class="skills-tag" value="SCRUM"
+              /></span>
+            </div>
+          </div>
+        </div> -->
+      </section>
+    </div>
+    <div class="details col-5">
+      <div *ngFor="let item of detailsData">
+        <app-details-card [data]="item"></app-details-card>
+      </div>
+    </div>
+  </div>
+</div>

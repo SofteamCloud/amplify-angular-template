@@ -1,0 +1,14 @@
+.title {
+  color: #00008c;
+  letter-spacing: -0.2px;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: #666d92;
+  margin-top: 4px;
+}
+
+::ng-deep .p-datatable .p-dropdown {
+  width: 100px;
+}

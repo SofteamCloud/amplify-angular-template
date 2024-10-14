@@ -1,0 +1,176 @@
+<p-card class="matching-result-card">
+  <div class="flex justify-content-between align-items-center">
+    <h2 class="matching-title">{{ matching?.profil_attendu }}</h2>
+    <p-button
+      label="Voir la fiche de l'appel d'offre"
+      icon="pi pi-arrow-right"
+      iconPos="right"
+      styleClass="p-button-outlined"
+    ></p-button>
+  </div>
+  <div class="client-info flex align-items-center">
+    <h3 class="client-name">Client : {{ matching?.client_ao }}</h3>
+    <div class="tag-container">
+      <p-tag
+        *ngFor="let item of matching?.domaine_ao"
+        class="skills-tag red"
+        value="{{ item }}"
+      />
+    </div>
+  </div>
+  <div class="grid skills-section">
+    <div class="col-6">
+      <div *ngIf="matching?.profil_attendu" class="skill-item">
+        <i class="pi pi-wrench"></i>
+        <div>
+          <h2 class="skill-title">Profil recherché</h2>
+          <div class="tag-container">
+            <p-tag
+              *ngFor="let item of matching?.profil_attendu"
+              class="skills-tag"
+              value="{{ item }}"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div *ngIf="matching?.techno_ao" class="skill-item">
+        <i class="pi pi-wrench"></i>
+        <div>
+          <h2 class="skill-title">Profil recherché</h2>
+          <div class="tag-container">
+            <p-tag
+              *ngFor="let item of matching?.techno_ao"
+              class="skills-tag red"
+              value="{{ item }}"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-divider />
+  <header class="candidate-header grid">
+    <h1 class="candidate-name">{{ matching?.candidat }}</h1>
+    <span class="candidate-score">{{ matching?.global_score }}</span>
+  </header>
+  <div class="grid">
+    <div
+      *ngIf="matching?.profil_candidat.length"
+      class="functions align-content-center"
+    >
+      <p-tag
+        *ngFor="let item of matching?.profil_candidat"
+        class="function-tag mr-2"
+        value="{{ item }}"
+      />
+    </div>
+  </div>
+  <div class="grid notations-container flex justify-content-between">
+    <div *ngIf="matching?.experience_score" class="metric-item">
+      <span class="metric-title">Expérience</span>
+      <h2 class="metric-value">{{ matching?.experience_score }}</h2>
+    </div>
+    <div *ngIf="matching?.competences_score" class="metric-item">
+      <span class="metric-title">Compétences</span>
+      <h2 class="metric-value">{{ matching?.competences_score }}</h2>
+    </div>
+    <div *ngIf="matching?.domaine_score" class="metric-item">
+      <span class="metric-title">Domaine</span>
+      <h2 class="metric-value">{{ matching?.domaine_score }}</h2>
+    </div>
+    <div *ngIf="matching?.formation_score" class="metric-item">
+      <span class="metric-title">Formation</span>
+      <h2 class="metric-value">{{ matching?.formation_score }}</h2>
+    </div>
+    <div *ngIf="matching?.methodologie_score" class="metric-item">
+      <span class="metric-title">Méthodologie</span>
+      <h2 class="metric-value">{{ matching?.methodologie_score }}</h2>
+    </div>
+    <div *ngIf="matching?.profil_score" class="metric-item">
+      <span class="metric-title">Profil</span>
+      <h2 class="metric-value">{{ matching?.profil_score }}</h2>
+    </div>
+    <div *ngIf="matching?.techno_majeur_score" class="metric-item">
+      <span class="metric-title">Outils principaux</span>
+      <h2 class="metric-value">{{ matching?.techno_majeur_score }}</h2>
+    </div>
+  </div>
+  <div class="details grid">
+    <app-details-card [data]="justifications"></app-details-card>
+  </div>
+  <div class="details grid">
+    <app-details-card [data]="recommandations"></app-details-card>
+  </div>
+  <div *ngIf="selectedCv" class="candidate-details grid">
+    <div class="col-7">
+      <section class="mb-5 candidate-info col-12">
+        <p
+          *ngIf="selectedCv?.experience; else noExperienceTemplate"
+          class="experience"
+        >
+          Expérience : {{ selectedCv?.experience }} ans
+        </p>
+        <ng-template #noExperienceTemplate>
+          <p class="experience">Expérience : N/A</p>
+        </ng-template>
+        <div *ngIf="attractivite" class="cv-attractiveness">
+          <span>Attractivité du CV :</span>
+          <div class="star-rating">
+            <p-rating
+              [(ngModel)]="attractivite"
+              [cancel]="false"
+              [readonly]="true"
+            ></p-rating>
+          </div>
+        </div>
+      </section>
+      <section class="skills-section col-12">
+        <div *ngIf="selectedCv?.profil" class="skill-item">
+          <i class="pi pi-shopping-bag"></i>
+          <div>
+            <h2 class="skill-title">Compétences métier</h2>
+            <div class="tag-container">
+              <span class="skill-description">
+                {{ selectedCv?.profil }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="selectedCv?.techno_majeures" class="skill-item">
+          <i class="pi pi-wrench"></i>
+          <div>
+            <h2 class="skill-title">Outils principaux</h2>
+            <div class="tag-container">
+              <p-tag
+                *ngFor="let item of selectedCv?.techno_majeures | split_string"
+                class="skills-tag red"
+                value="{{ item }}"
+              />
+            </div>
+          </div>
+        </div>
+        <div *ngIf="selectedCv?.techno_mineures" class="skill-item">
+          <i class="pi pi-wrench"></i>
+          <div>
+            <h2 class="skill-title">Outils secondaires</h2>
+            <div class="tag-container">
+              <p-tag
+                *ngFor="let item of selectedCv?.techno_mineures | split_string"
+                class="skills-tag red"
+                value="{{ item }}"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="details col-5">
+      <div *ngFor="let item of detailsData">
+        <app-details-card [data]="item"></app-details-card>
+      </div>
+    </div>
+  </div>
+</p-card>

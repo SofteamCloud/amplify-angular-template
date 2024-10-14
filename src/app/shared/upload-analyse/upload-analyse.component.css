@@ -1,0 +1,27 @@
+.upload-icon {
+  font-size: 48px;
+  color: #0000ff;
+}
+.upload-instruction {
+  color: #0000ff;
+  font: 400 16px Barlow, sans-serif;
+  letter-spacing: 0.16px;
+}
+.file-limit-info {
+  color: #666d92;
+  font: italic 12px/1 Barlow, sans-serif;
+  letter-spacing: 0.12px;
+}
+.subtitle {
+  color: #666d92;
+  font: 500 16px/1 Barlow, sans-serif;
+  margin-top: 4px;
+}
+::ng-deep .p-dropdown {
+  width: 548px;
+}
+.prompting{
+  padding: 2rem;
+  background-color: #F8F7F7;
+  border-radius: 10px;
+}

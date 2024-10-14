@@ -1,0 +1,80 @@
+.candidate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.candidate-name {
+  color: #00f;
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: -0.42px;
+}
+
+.candidate-score {
+  background-color: #f4faf6;
+  color: #4a801a;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 4px;
+}
+
+.candidate-details {
+  margin-top: 3rem;
+}
+
+.candidate-info {
+  display: flex;
+  gap: 10rem;
+  padding: 0;
+}
+
+.experience {
+  color: #00008c;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+}
+
+.cv-attractiveness {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #00008c;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.skills-section, .evaluation-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-item, .evaluation-item {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.skill-title, .evaluation-title {
+  color: #00008c;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+}
+
+.skill-description, .evaluation-description {
+  color: #00008c;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 4px 0;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0;
+}

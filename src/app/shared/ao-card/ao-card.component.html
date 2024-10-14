@@ -1,0 +1,50 @@
+<p-card class="ao-card">
+  <header class="ao-card-header">
+    <h2 class="ao-card-title">{{ title }}</h2>
+    <div>
+      <span class="ao-card-quotation">{{ quotation }}</span>
+    </div>
+  </header>
+  <div class="ao-card-details">
+    <span class="ao-card-id">ID : {{ id }}</span>
+    <span class="ao-card-ref">Ref : {{ ref }}</span>
+  </div>
+  <div class="ao-card-client-info">
+    <p class="ao-card-client">Client : {{ client }}</p>
+    <p-tag
+    class="skills-tag red"
+    value="{{ sector }}"
+  />
+  </div>
+  <div class="ao-card-profiles">
+    <i class="pi pi-user ao-card-icon"></i>
+    <div>
+      <h3 class="ao-card-subtitle">Profil recherché</h3>
+      <div class="ao-card-tags">
+        <p-tag
+          *ngFor="let profile of profiles"
+          class="skills-tag"
+          value="{{ profile }}"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="ao-card-start-date">
+    <i class="pi pi-calendar ao-card-icon"></i>
+    <div>
+      <h3 class="ao-card-subtitle">Début de mission</h3>
+      <p>{{ startDate }}</p>
+    </div>
+  </div>
+  <div class="ao-card-duration">
+    <i class="pi pi-clock ao-card-icon"></i>
+    <div>
+      <h3 class="ao-card-subtitle">Durée</h3>
+      <p>{{ duration }}</p>
+    </div>
+  </div>
+  <hr class="ao-card-divider" />
+  <footer class="ao-card-footer">
+    <button class="ao-card-button">Voir la fiche complète</button>
+  </footer>
+</p-card>

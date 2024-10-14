@@ -1,0 +1,11 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  color: #1010fe;
+  font-weight: 600;
+  font-size: 14px;
+  p {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+}

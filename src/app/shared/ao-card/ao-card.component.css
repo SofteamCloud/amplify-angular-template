@@ -1,0 +1,151 @@
+.ao-card-header {
+  display: flex;
+  min-height: 44px;
+  width: 100%;
+  gap: 16px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ao-card-title {
+  color: var(--Action-Cobalt-100, #00f);
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.18px;
+  flex: 1;
+}
+
+.ao-card-quotation {
+  border-radius: 4px;
+  background-color: #f4faf6;
+  font-size: 20px;
+  color: var(--Status-Colors-Green-Text, #4a801a);
+  text-align: center;
+  letter-spacing: -0.2px;
+  line-height: 1.4;
+  padding: 8px;
+}
+
+.ao-card-details {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  color: var(--Text-Ultramarine, #00008c);
+  flex-wrap: wrap;
+  font: 600 10px/1.6 Montserrat, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.ao-card-id,
+.ao-card-ref {
+  border-radius: 4px;
+  background: var(--Additional-Colors-DodgerBlue-Background, #eff2ff);
+  padding: 2px 12px;
+}
+
+.ao-card-id {
+  flex: 1;
+}
+
+.ao-card-client-info {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 14px 0;
+}
+
+.ao-card-client {
+  color: var(--Text-Ultramarine, #00008c);
+  font: 700 18px/1 Montserrat, -apple-system, Roboto, Helvetica, sans-serif;
+  letter-spacing: -0.18px;
+  margin-bottom: 4px;
+}
+
+.ao-card-sector {
+  align-self: start;
+  border-radius: 4px;
+  background-color: #fef4f5;
+  margin-top: 4px;
+  color: var(--Status-Colors-Red-Text, #d00000);
+  text-align: center;
+  letter-spacing: 0.14px;
+  padding: 2px 8px;
+  font: 400 14px/1 Barlow, sans-serif;
+}
+
+.ao-card-content {
+  display: flex;
+  margin-top: 32px;
+  width: 100%;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 24px;
+}
+
+.ao-card-profiles,
+.ao-card-start-date,
+.ao-card-duration {
+  display: flex;
+  width: 100%;
+  align-items: start;
+  gap: 8px;
+  margin: 25px 0;
+}
+
+.ao-card-profiles h3,
+.ao-card-start-date h3,
+.ao-card-duration h3 {
+  margin: 0;
+}
+
+.ao-card-icon {
+  color: #797FA0;
+}
+
+.ao-card-subtitle {
+  color: var(--Text-Ultramarine, #00008c);
+  font: 600 14px/1 Montserrat, sans-serif;
+  letter-spacing: -0.14px;
+}
+
+.ao-card-tags {
+  display: flex;
+  margin-top: 8px;
+  width: 100%;
+  align-items: start;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ao-card-start-date p,
+.ao-card-duration p {
+  margin-top: 4px;
+}
+
+.ao-card-divider {
+  min-height: 1px;
+  width: 100%;
+  border: none;
+  background-color: #ededf2;
+}
+
+.ao-card-footer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.ao-card-button {
+  color: var(--Action-Cobalt100, #00f);
+  text-align: center;
+  letter-spacing: -0.14px;
+  font: 600 14px/1 Montserrat, -apple-system, Roboto, Helvetica, sans-serif;
+  border-radius: 24px;
+  padding: 12px 24px;
+  border: 1px solid #00f;
+  background: none;
+  cursor: pointer;
+}

@@ -1,0 +1,12 @@
+.card-text-blue{
+    padding: 92px 48px 24px 48px;
+}
+
+.blue {
+    color: #0000FF;;
+}
+
+
+::ng-deep .p-tag {
+    margin: 3px;
+}

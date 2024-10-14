@@ -1,0 +1,59 @@
+<div class="base-candidat">
+  <app-upload-analyse [wordings]="wordings"></app-upload-analyse>
+  <p-card styleClass="card-text-blue">
+    <h2>Candidats analysés</h2>
+    <p>Listes des candidats déjà analysés par NIR Assistant</p>
+    <p-table
+      #dt
+      class="custom-table"
+      [value]="listCandidats"
+      dataKey="id"
+      [rows]="10"
+      [rowsPerPageOptions]="[10, 25, 50]"
+      [paginator]="true"
+      [globalFilterFields]="['id', 'profil', 'date']"
+      sortField="date"
+      [sortOrder]="-1"
+    >
+      <ng-template pTemplate="caption">
+        <div class="flex justify-content-end">
+          <span class="p-input-icon-left ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              pInputText
+              type="text"
+              (input)="globalSearch(dt, $event)"
+              placeholder="Search"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id">Nom <p-sortIcon field="id" /></th>
+          <th pSortableColumn="profil">Profil <p-sortIcon field="profil" /></th>
+          <th pSortableColumn="date">
+            Dernière analyse <p-sortIcon field="date" />
+          </th>
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-profil>
+        <tr>
+          <td>{{ profil.id }}</td>
+          <td><p-tag class="skills-tag mr-2" [value]="profil.profil" /></td>
+          <td>{{ profil.date }}</td>
+          <td>
+            <p-button
+              label="Ouvrir"
+              icon="pi pi-arrow-right"
+              iconPos="right"
+              styleClass="p-button-outlined"
+              (click)="redirect(profil)"
+            ></p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-card>
+</div>
