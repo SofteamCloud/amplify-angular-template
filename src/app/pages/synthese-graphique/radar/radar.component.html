@@ -1,0 +1,51 @@
+<p-card styleClass="card-text-blue">
+  <h2 class="title">Analyse graphique des données candidats</h2>
+  <p class="subtitle">
+    Sélectionnez le document d’appel d’offres puis les candidats pour visualiser
+    leur correspondance
+  </p>
+  <div class="grid radar-container">
+    <div class="col-6">
+      <div class="selectAo">
+        <p class="input-label">Choisir un appel d'offres dans la liste</p>
+        <p-dropdown
+          [options]="aoList"
+          [(ngModel)]="selectedAo"
+          optionLabel="Key"
+          placeholder="Sélectionner"
+        />
+      </div>
+      <div class="selectCandidates">
+        <p class="input-label">Ajouter un ou plusieurs candidats</p>
+        <p-card>
+          <div class="grid">
+            <div class="col-5 selectCandidates">
+              <p-multiSelect
+                [options]="candidatesList"
+                [(ngModel)]="selectedCandidates"
+                optionLabel="Key"
+                placeholder="Sélection candidats"
+                [maxSelectedLabels]="1"
+              />
+            </div>
+            <div class="vertical-line"></div>
+            <div class="col-5 displayCandidates">
+              <p>Candidats sélectionnés</p>
+              <div class="card flex align-items-center gap-2 flex-wrap">
+                <p-chip
+                  *ngFor="let item of selectedCandidates"
+                  label="{{ item.Key }}"
+                  [removable]="true"
+                  (onRemove)="removeCandidate(item)"
+                />
+              </div>
+            </div>
+          </div>
+        </p-card>
+      </div>
+    </div>
+    <div class="col-6 radar">
+      <p-chart type="radar" [data]="data" [options]="options" />
+    </div>
+  </div>
+</p-card>

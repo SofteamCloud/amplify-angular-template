@@ -31,11 +31,6 @@ export class SidebarComponent implements OnInit {
       routerLink: ['/matching-cvao']
     },
     {
-      label: 'Visualisation',
-      icon: 'pi pi-chart-bar',
-      routerLink: ['/visualisation']
-    },
-    {
       label: 'Synthèse graphique',
       icon: 'pi pi-chart-pie',
       routerLink: ['/synthese-graphique']

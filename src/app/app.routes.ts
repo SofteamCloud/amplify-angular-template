@@ -51,13 +51,6 @@ export const routes: Routes = [
       ).then((m) => m.MatchingResultPageComponent),
   },
   {
-    path: 'visualisation',
-    loadComponent: () =>
-      import('./pages/visualisation/visualisation.component').then(
-        (m) => m.VisualisationComponent
-      ),
-  },
-  {
     path: 'synthese-graphique',
     loadComponent: () =>
       import('./pages/synthese-graphique/synthese-graphique.component').then(

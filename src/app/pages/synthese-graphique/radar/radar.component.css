@@ -1,0 +1,58 @@
+.title {
+  color: #00008c;
+  letter-spacing: -0.2px;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: #666d92;
+  margin-top: 4px;
+}
+
+.selectAo{
+  margin-top: 2rem;
+}
+
+.input-label {
+  color: #00008c;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+::ng-deep .p-dropdown {
+  width: 40%;
+}
+
+.selectCandidates{
+  margin-top: 2rem
+}
+
+::ng-deep .selectCandidates .p-card {
+  border: 1px solid #e1e1e1;
+}
+
+::ng-deep .selectCandidates .p-card .p-card-body .p-card-content {
+  padding: 0;
+}
+
+.vertical-line{
+  border: 1px solid #e1e1e1;
+  margin: 0 2rem;
+}
+
+.line{
+  border: 1px solid #e1e1e1;
+  margin: 2rem 0;
+}
+
+.displayCandidates p {
+  margin-top: 0;
+}
+
+.radar-container{
+  justify-content: space-between;
+}
+
+.radar{
+  width: 35%;
+}
