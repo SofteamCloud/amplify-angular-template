@@ -1,88 +1,94 @@
 <p-card styleClass="card-text-blue">
   <h2>{{ wordings.title }}</h2>
   <span> {{ wordings.subTitle }}</span>
-  <div class="grid">
-    <div class="col-6">
-      <p-tabView class="mt-2" (onChange)="tabIndex = $event.index">
-        <p-tabPanel [header]="wordings.section1_title" styleClass="mt-3">
-          <p-fileUpload
-            #fileUpload
-            name="myfile[]"
-            url="./upload.php"
-            [multiple]="false"
-            accept="application/pdf"
-            maxFileSize="2000000"
-            (onSelect)="onFileSelect($event)"
-            mode="advanced"
-          >
-            <ng-template pTemplate="content">
-              <p><i class="pi pi-cloud-upload upload-icon"></i></p>
-              <p class="upload-instruction">
-                Glissez et déposez votre fichier ici
-              </p>
-              <p class="upload-alternative">ou</p>
-              <p-button
-                label="Parcourir les fichiers"
-                styleClass="p-button-outlined"
-                (click)="triggerFileSelect()"
-              ></p-button>
-              <p class="file-limit-info">
-                Fichier limité à 200MB au format PDF uniquement
-              </p>
-            </ng-template>
-          </p-fileUpload>
-          <p-divider />
-          <div class="flex justify-content-end mt-2">
-            <p-button (click)="uplaodFile()" class="mr-2">Upload file</p-button>
-            <p-button (click)="analyseFile()" [disabled]="!uploadedFile"
-              >Lancer l'analyse</p-button
-            >
-          </div>
-        </p-tabPanel>
-        <p-tabPanel [header]="wordings.section2_title">
-          <div class="flex justify-content-left dropdown-width">
-            <p-dropdown
-              [options]="listToAnalyse"
-              [(ngModel)]="selectedFileFromList"
-              optionLabel="Key"
-              placeholder="Sélectionner"
-            />
-          </div>
-          <p-divider />
-          <div class="flex justify-content-end mt-2">
-            <p-button (click)="analyseFile()" [disabled]="!selectedFileFromList"
-              >Lancer l'analyse</p-button
-            >
-          </div>
-        </p-tabPanel>
-      </p-tabView>
-    </div>
-    <div class="prompting col-6 flex flex-column gap-2 justify-content-center">
-      <div class="flex flex-column gap-2">
-        <label for="inputPrompt">Entrez votre prompt :</label>
-        <input
-          pInputText
-          id="inputPrompt"
-          aria-describedby="username-help"
-          [(ngModel)]="myPrompt"
-        />
-        <div class="flex justify-content-end">
-          <p-button>Lancer le prompt</p-button>
-        </div>
-      </div>
-      <div>
-        <p-fieldset legend="Résultat">
-          <p class="m-0">
-            Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem
-            ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum
-            dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit
-            amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit
-            amet...Lorem ipsum dolor sit amet...
+  <p-tabView class="mt-2" (onChange)="tabIndex = $event.index">
+    <p-tabPanel [header]="wordings.section1_title" styleClass="mt-3">
+      <p-fileUpload
+        #fileUpload
+        name="myfile[]"
+        url="./upload.php"
+        [multiple]="false"
+        accept="application/pdf"
+        maxFileSize="2000000"
+        (onSelect)="onFileSelect($event)"
+        mode="advanced"
+      >
+        <ng-template pTemplate="content">
+          <p><i class="pi pi-cloud-upload upload-icon"></i></p>
+          <p class="upload-instruction">Glissez et déposez votre fichier ici</p>
+          <p class="upload-alternative">ou</p>
+          <p-button
+            label="Parcourir les fichiers"
+            styleClass="p-button-outlined"
+            (click)="triggerFileSelect()"
+          ></p-button>
+          <p class="file-limit-info">
+            Fichier limité à 200MB au format PDF uniquement
           </p>
-        </p-fieldset>
+        </ng-template>
+      </p-fileUpload>
+      <p-divider />
+      <div class="flex justify-content-end mt-2">
+        <p-button (click)="uplaodFile()" class="mr-2">Upload file</p-button>
+        <p-button (click)="analyseFile()" [disabled]="!uploadedFile"
+          >Lancer l'analyse</p-button
+        >
       </div>
+    </p-tabPanel>
+    <p-tabPanel [header]="wordings.section2_title">
+      <div class="flex justify-content-left dropdown-width">
+        <p-dropdown
+          [options]="listToAnalyse"
+          [(ngModel)]="selectedFileFromList"
+          optionLabel="Key"
+          placeholder="Sélectionner"
+        />
+      </div>
+      <p-divider />
+      <div class="flex justify-content-end mt-2">
+        <p-button (click)="analyseFile()" [disabled]="!selectedFileFromList"
+          >Lancer l'analyse</p-button
+        >
+      </div>
+    </p-tabPanel>
+    @if((uploadedFile && tabIndex === 0) || (selectedFileFromList && tabIndex === 1)){
+    <div class="custom-prompt">
+      <p-accordion>
+        <p-accordionTab header="Custom Prompt">
+          <div class="grid">
+            <div class="col-6">
+              <div class="flex flex-column gap-2">
+                <label for="inputPrompt">Entrez votre prompt :</label>
+                <textarea
+                  rows="5"
+                  cols="30"
+                  id="inputPrompt"
+                  pInputTextarea
+                  [(ngModel)]="myPrompt"
+                ></textarea>
+                <div class="flex justify-content-end">
+                  <p-button>Lancer le prompt</p-button>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <p-fieldset legend="Résultat">
+                <p class="m-0">
+                  Lorem ipsum dolor sit amet...Lorem ipsum dolor sit
+                  amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit
+                  amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit
+                  amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit
+                  amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit
+                  amet...
+                </p>
+              </p-fieldset>
+            </div>
+          </div>
+        </p-accordionTab>
+      </p-accordion>
     </div>
-  </div>
+    }
+  </p-tabView>
 </p-card>
 
 @if(data){ @if(showAnalyse && router.url === '/espace-cv'){

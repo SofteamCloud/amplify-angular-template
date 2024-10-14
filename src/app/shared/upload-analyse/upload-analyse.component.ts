@@ -29,6 +29,8 @@ import { Router, NavigationEnd } from '@angular/router';
 import { ResultatAnalyseAOComponent } from '../../pages/analyse-appel-offre/resultat-appel-offre/resultat-analyse-appel-offre.component';
 import { AoRedirectService } from '../../core/services/ao.redirect.service';
 import { FieldsetModule } from 'primeng/fieldset';
+import { AccordionModule } from 'primeng/accordion';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @Component({
   selector: 'app-upload-analyse',
@@ -50,7 +52,9 @@ import { FieldsetModule } from 'primeng/fieldset';
     ResultatAnalyseAOComponent,
     ToastModule,
     RippleModule,
-    FieldsetModule
+    FieldsetModule,
+    AccordionModule,
+    InputTextareaModule
   ],
   templateUrl: './upload-analyse.component.html',
   styleUrl: './upload-analyse.component.css',

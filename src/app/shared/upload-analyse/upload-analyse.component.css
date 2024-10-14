@@ -25,3 +25,18 @@
   background-color: #F8F7F7;
   border-radius: 10px;
 }
+.custom-prompt{
+  margin-top: 2rem;
+}
+
+::ng-deep .p-fileupload .p-fileupload-content{
+  padding: 0;
+}
+
+::ng-deep .p-fileupload .p-fileupload-content p {
+  margin: 0
+}
+
+::ng-deep .p-fileupload .p-fileupload-content p:last-of-type{
+  margin-bottom: 1rem;
+}
